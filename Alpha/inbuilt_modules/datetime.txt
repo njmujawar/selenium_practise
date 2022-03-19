@@ -1,0 +1,121 @@
+****************************** creating datetime object ***************************
+>>> import datetime
+>>> datetime.datetime(2021, 12, 18, 11, 54)
+datetime.datetime(2021, 12, 18, 11, 54)
+>>> td = _
+>>> td.year
+2021
+>>> td.day
+18
+>>> td.month
+12
+>>> td.hour
+11
+
+************************* extracting date and time from datetime *********************
+>>> td.date()
+datetime.date(2021, 12, 18)
+>>> td.time()
+datetime.time(11, 54)
+
+**************************** changing year ******************************
+>>> td.year = 2022
+Traceback (most recent call last):
+  File "<pyshell#204>", line 1, in <module>
+    td.year = 2022
+AttributeError: attribute 'year' of 'datetime.date' objects is not writable
+
+*************************** Getting current date and time *************************
+>>> datetime.date.today()
+datetime.date(2021, 12, 18)
+>>> today_ = _
+>>> today_.year
+2021
+>>> today_.day
+18
+>>> today_.month
+12
+
+************************** Getting previous or next dates *************************
+>>> td = datetime.datetime(2021, 12, 15)
+>>> td
+datetime.datetime(2021, 12, 15, 0, 0)
+>>> delta_ = datetime.timedelta(days=3)
+>>> delta_
+datetime.timedelta(days=3)
+>>> td + delta_
+datetime.datetime(2021, 12, 18, 0, 0)
+>>> td - delta_
+datetime.datetime(2021, 12, 12, 0, 0)
+>>> td
+datetime.datetime(2021, 12, 15, 0, 0)
+>>> delta_ = datetime.timedelta(days=20)
+>>> td + delta_
+datetime.datetime(2022, 1, 4, 0, 0)
+>>> td = datetime.date(2021, 12, 22)
+>>> today_
+datetime.date(2021, 12, 18)
+>>> td - today_
+datetime.timedelta(days=4)
+>>> td = datetime.date.today()
+>>> date_ = datetime.date(2022, 8, 15)
+>>> date_ - td
+datetime.timedelta(days=240)
+
+*************************** Getting current date and time *************************
+>>> datetime.datetime.today()
+datetime.datetime(2021, 12, 18, 12, 14, 26, 763847)
+>>> datetime.datetime.now()
+datetime.datetime(2021, 12, 18, 12, 14, 47, 30584)
+>>> td = datetime.datetime.today()
+>>> td.date()
+datetime.date(2021, 12, 18)
+>>> td.time()
+datetime.time(12, 15, 28, 402249)
+
+************************ Converting a date string into datetime object *****************
+>>> date_ = "18/12/2021"
+>>> date_.split("/")
+['18', '12', '2021']
+>>> day, month, year = date_.split("/")
+>>> day
+'18'
+>>> month
+'12'
+>>> year
+'2021'
+>>> datetime.date(int(year), int(month), int(day))
+datetime.date(2021, 12, 18)
+
+************************ Converting a time string into datetime object *****************
+>>> time_ = "12:19:45"
+>>> hour, min_, sec = time_.split(":")
+>>> hour
+'12'
+>>> min_
+'19'
+>>> sec
+'45'
+>>> datetime.time(int(hour), int(min_), int(sec))
+datetime.time(12, 19, 45)
+
+************************** strptime() ***************************
+>>> td_str = "Dec 18, 2021"
+>>> datetime.datetime.strptime(td_str, "%b %d, %Y")
+datetime.datetime(2021, 12, 18, 0, 0)
+>>> td_str = "December 18, 2021"
+>>> datetime.datetime.strptime(td_str, "%B %d, %Y")
+datetime.datetime(2021, 12, 18, 0, 0)
+>>> td_str = "Dec 18, 21"
+>>> datetime.datetime.strptime(td_str, "%b %d, %y")
+datetime.datetime(2021, 12, 18, 0, 0)
+
+
+**************************** strftime() **************************
+
+>>> td
+datetime.datetime(2021, 12, 18, 12, 15, 28, 402249)
+>>> datetime.date.strftime(td, "%Y %B %d")
+'2021 December 18'
+>>> datetime.date.strftime(td, "%Y %B %d %A")
+'2021 December 18 Saturday'

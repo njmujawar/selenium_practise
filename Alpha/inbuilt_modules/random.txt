@@ -1,0 +1,59 @@
+import random
+
+***************************** randrange() *****************************
+>>> random.randrange(5)
+2
+>>> random.randrange(5)
+0
+>>> random.randrange(5)
+2
+>>> random.randrange(5)
+1
+>>> random.randrange(5)
+1
+
+***************************** randint() ******************************
+>>> random.randint(1, 10)
+5
+>>> random.randint(1, 10)
+10
+>>> random.randint(1, 10)
+7
+>>> random.randint(1, 10)
+2
+
+******************************* random() ********************************
+>>> random.random()
+0.2652987752945418
+>>> random.random()
+0.6336678982325737
+
+******************************* uniform() ********************************
+>>> random.uniform(1, 5)
+1.6035291553006745
+
+******************************* choice() ********************************
+>>> l = ["python", "java", "c++", "ruby", "perl", "js"]
+>>> random.choice(l)
+'java'
+>>> random.choice(l)
+'js'
+>>> random.choice(l)
+'java'
+
+******************************* shuffle() ********************************
+>>> l = ["python", "java", "c++", "ruby", "perl", "js"]
+>>> random.shuffle(l)
+>>> l
+['js', 'ruby', 'python', 'java', 'c++', 'perl']
+
+******************************* sample() ********************************
+>>> l = ["python", "java", "c++", "ruby", "perl", "js"]
+>>> random.sample(l, 2)
+['ruby', 'js']
+>>> random.sample(l, 1)
+['c++']
+>>> random.sample(l, 3)
+['java', 'js', 'c++']
+
+

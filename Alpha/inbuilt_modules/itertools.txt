@@ -1,0 +1,165 @@
+***************************** count() **************************
+>>> import itertools
+>>> count_ = itertools.count()
+>>> count_
+count(0)
+>>> for i in count_:
+	print(i)
+
+***************************** cycle() **************************
+>>> l = ["on", "off"]
+>>> res = itertools.cycle(l)
+>>> res
+<itertools.cycle object at 0x0000018D2FE43B00>
+>>> next(res)
+'on'
+>>> next(res)
+'off'
+>>> next(res)
+'on'
+>>> next(res)
+'off'
+
+>>> for i in res:
+	print(i)            # infinite looping
+
+>>>for i in range(5):
+	print(next(res))
+
+on
+off
+on
+off
+on
+
+***************************** repeat() **************************
+
+>>> res = itertools.repeat(2)
+>>> res
+repeat(2)
+>>> for i in range(5):
+	print(next(res))
+
+2
+2
+2
+2
+2
+
+>>> res = itertools.repeat(2, times=3)
+>>> res
+repeat(2, 3)
+>>> for i in range(5):
+	print(next(res))
+
+
+2
+2
+2
+Traceback (most recent call last):
+  File "<pyshell#68>", line 2, in <module>
+    print(next(res))
+StopIteration
+
+***************************** permutation() **************************
+
+>>> num = [1, 2, 3]
+>>> itertools.permutations(num)
+<itertools.permutations object at 0x0000018D31FCC5E0>
+>>> for i in _:
+	print(i)
+
+
+(1, 2, 3)
+(1, 3, 2)
+(2, 1, 3)
+(2, 3, 1)
+(3, 1, 2)
+(3, 2, 1)
+
+***************************** combination() **************************
+>>> num = [1, 2, 3]
+>>> itertools.combinations(num, 2)
+<itertools.combinations object at 0x0000018D31FED040>
+>>> for i in _:
+	print(i)
+
+
+(1, 2)
+(1, 3)
+(2, 3)
+
+***************************** islice() **************************
+>>> names = ['python', 'java', 'c++', 'ruby', 'perl', 'js']
+>>> names[0:3]
+['python', 'java', 'c++']
+>>> names[3:6]
+['ruby', 'perl', 'js']
+>>> names[3:8]
+['ruby', 'perl', 'js']
+
+
+>>> names = ['python', 'java', 'c++', 'ruby', 'perl', 'js']
+>>> a = iter(names)
+>>> itertools.islice(a, 3)
+<itertools.islice object at 0x0000018D31FED040>
+>>> list(_)
+['python', 'java', 'c++']
+
+>>> names = ['python', 'java', 'c++', 'ruby', 'perl', 'js']
+>>> num = (1, 2, 3)
+>>> itertools.chain(names, num)
+<itertools.chain object at 0x0000018D31FC5E80>
+>>> list(_)
+['python', 'java', 'c++', 'ruby', 'perl', 'js', 1, 2, 3]
+
+********************** read random lines from a file ********************
+import itertools
+
+def random_line(file_path, start, end):
+    with open(file_path) as file:
+        res = itertools.islice(file, start, end)
+        print(list(res))
+
+# random_line(f_path, 5, 10)
+
+********************** read random line from a file ********************
+import itertools
+
+def random_line(file_path, line_no):
+    with open(file_path) as file:
+        res = itertools.islice(file, line_no-1, line_no)
+        print(list(res))
+
+# random_line(f_path, 5)
+
+********************** read last 2 lines from a file using islice ********************
+
+def last_2_lines(filepath):
+    with open(filepath) as file:
+        lines = 0
+        for _ in file:
+            lines += 1      # 7
+        file.seek(0)
+        res = itertools.islice(file, lines-2, lines)
+        print(list(res))
+
+********************** read last 2 lines from a file using deque ********************
+
+from collections import deque
+
+def last_n_lines(filepath, n):
+    with open(filepath) as file:
+        res = deque(file, n)
+        print(list(res))
+
+last_n_lines(f_path, 2)
+
+
+
+
+
+
+
+
+
