@@ -60,7 +60,8 @@
 # res1 = filter(evens, l)
 # # print(list(res1))   # [2, 4, 6]
 #
-# ################################################################
+# ################
+# ################################################
 l = [1, 2, 3, 4, 5, 6]
 
 evens = lambda item: item % 2
@@ -70,15 +71,15 @@ res1 = filter(evens, l)
 
 
 #################################################################
-names = ["eve", "Steve", "john", "ram", "sita"]
-
+# names = ["eve", "Steve", "john", "ram", "sita"]
+#
 # def even_len(name):
 #     return len(name) % 2 == 0
-
-even_len = lambda name: name+"i"
+#
+# even_len = lambda name: name+"i"
 # print(even_len("eve"))
-
-res = filter(even_len, names)
+#
+# res = filter(even_len, names)
 # print(list(res))
 
 ###################################################################
@@ -95,8 +96,7 @@ def is_prime(n):
 
 
 prime = filter(is_prime, range(50))
-# print(list(prime))
-
+print(list(prime))
 ###############################################################################
 
 nums = [1, 2, -2, -3, 4, -9, -2, 0, 5]

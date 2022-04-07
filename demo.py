@@ -1,5 +1,6 @@
 from selenium import webdriver
-driver = webdriver.Firefox()
+# driver = webdriver.Firefox()
+driver = webdriver.Chrome(".\chromedriver")
 # driver.get('https://www.flipkart.com/')
 # s ="hello  python"
 import socket
@@ -156,19 +157,155 @@ from collections import defaultdict
 # print(d)
 # print(e_index)
 # print(o_index)
-D = {"names": "apple", "ID": 152778}
-d = {"helo": "apple", "Ib": 657678}
-dd = {k1: [D[k1], d[k2]] for k1, k2 in zip(D, d)}
-print(dd)
-a =zip(D,d)
-print(list(a))
+# D = {"names": "apple", "ID": 152778}
+# d = {"helo": "apple", "Ib": 657678}
+# dd = {k1: [D[k1], d[k2]] for k1, k2 in zip(D, d)}
+# print(dd)
+# a =zip(D,d)
+# print(list(a))
+
+# import re
+# s = " hello ana world  annna '45415454564'"
+# t = "annnnaaa"
+# k = re.findall('\d{5}^', s)
+# print(k)
+# print(len(k))
+# re.findall("a.")
+# /////////////////////////////////////////////////////////////////////////////////////////
+# a = ["hi", "babe","hello","hey","mom"]
+# def count_(string , count = 0):
+#     for _ in string:
+#         count +=
+#     return count
+# print(count_(a))
+#///////////////////////////////////////////////////////////////////////////////////////
+# mmm = "hi how are you hi how  hi hi "
+from collections import defaultdict
+# def dictionary_(cc):
+#     dd = defaultdict(int)
+#     l = cc.split()
+#     for word in l:
+#         dd[word] += l.count(word)
+#     return dd
+# print(dictionary_("hi how are you you you"))
+# print(a)
 
 
+# l = "hi how are you hi how  hi hi "
+# words = l.split()
+# l1 =[]
+#
+# def count_():
+#     for word in words:
+#         l.count(word)
+#     return
+# print(count_("hi how are you hi how  hi hi "))
+# sentence = "hi how are you hi how  hi hi "
+# from collections import defaultdict
+# d = defaultdict(int)
+# words = sentence.split()
+# for word in words:
+#     d[word] += words.count(word)
+# print(d)
+# s = "python is a language, python programming is easy"
+# s1= s.split()
+# d = {word: s1.count(word) for word in s1 if len(word) % 2 == 0}
+# print(d)
+import re
+# s = 'python is a programming language  python and programming python is fun'
+# a = re.search("python", s)
+# print(a)
+#
+# s = """python Java is a programming language. programming is fun. python is easy"""
+# c = re.match("python", s)
+# print(c)
+# mobile_num = ["1234456789", "9876543210", "6547893210", "56732456840"]
+# for num in mobile_num:
+#     print(re.findall("^[6-9]\d{9}$", num))
+#///////////////////////////////////////////////////////////////////////////////////////
+import re
+# d = {"hello": 2 , "hi": 5 , "yes": 9}
+# b = (max(d.items(), key=lambda item:item[1])[1])
+# print(b)
+# //////////////////////////////////////////////////////////////////////////////////////
+from selenium import webdriver
+from time import sleep
+# driver = webdriver.Chrome()
+# from PIL import Image
+# from Screenshot import Screenshot_Clipping
+# driver.get(r'https://www.google.com/')
+# sleep(5)
+# driver.save_screenshot('abcd.png')
+# s = Image.open('abcd.png')
+# s.show()
+#/////////////////////////////////////////////////////////////////////////////////////////////
+# square = lambda n: n**2
+# print(square(3))
+# last_ele  = lambda iterable : iterable [-1]
+# print(last_ele('123'))
 
+# res = lambda a , b : a**2 + b**2 + 2 * a * b
+# print(res(2,3))
+# even  = lambda num : "even" if num%2 == 0 else "odd"
+# print(even(4))
+# res = lambda string : "paladrom " if string.lower() == string.lower()[::-1]  else"not pala"
+# print(res("hia"))
+# l = [1,2,3,4]
+# res = lambda n : n % 2 == 0
+# d = []
+# for item in l:
+#     if item %2 ==0:
+#         d.append(item)
+# k = filter(res,l)
+# print(list(k))
+# driver.get('http://demowebshop.tricentis.com/register')
+# sleep(3)
+# driver.find_element_by_xpath("(//input[@name='Gender'])[1]").click()
+# links = driver.find_elements_by_xpath("//div[@class='block block-category-navigation']//a")
+# for link in links:
+#     print(link.text)
+# sleep(2)
+# b = []
+# links = driver.find_elements_by_xpath("//div[@class='footer-menu-wrapper']//a")
+# for link in links:
+#     b.append(link.text)
+# print(b)
+# print(len(b))
+# sleep(2)
+driver.get("https://www.myntra.com/kids?f=Categories%3ATshirts%3A%3AGender%3Aboys%2Cboys%20girls&plaEnabled=false")
+sleep(3)
 
+disc_pr = driver.find_elements_by_xpath("//span[@class='product-discountedPrice']")
+disc_prices =[item.text for item in disc_pr]
 
+tshirts = driver.find_elements_by_xpath("//div[@class='product-productMetaInfo']/.//h4[@class='product-product']")
+t_shirts =[item.text for item in tshirts]
 
+actual_disc=[]
+for name,discount in zip(t_shirts,disc_prices):
+    actual_disc.append((name,discount))
+print(actual_disc)
+result = sorted(actual_disc,key=lambda item:item[-1])
+print(result)
+print(result[-1:-7:-1])
+import re
+res = []
+for item in actual_disc:
+    item1,item2 = item
+    # result = re.findall(r"[0-9]", item2)
+    result =  item2
+    res.append(result)
+    # res.append("".join(result))
+#
+print(res)
+print(res[-1:-7:-1])
 
+# first, *rest, last = result
+# print(first,last)
+
+# print(result[-1:-7:-1])
+#
+# print(len(result[-1:-7:-1]))
 
 
 

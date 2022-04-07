@@ -161,6 +161,7 @@ o
 >>> re.findall(".", s)
 ['H', 'i', ' ', 'H', 'o', 'w', ' ', 'a', 'r', 'e', ' ', 'y', 'o', 'u']
 >>> re.findall(".+", s)
+
 ['Hi How are you']
 >>> re.findall("[a-z]+", s)
 ['i', 'ow', 'are', 'you']
